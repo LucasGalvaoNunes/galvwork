@@ -1,0 +1,22 @@
+{
+    "name": "lucasgnunes/galvwork",
+    "description": "Package with all itens to make an API or a WebApp",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Lucasgnunes\\Galvwork\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Lucas Galvao Nunes",
+            "email": "contato@lucasgnunes.dev"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php": ">=5.3.0",
+        "monolog/monolog": "^2.3"
+    }
+}
