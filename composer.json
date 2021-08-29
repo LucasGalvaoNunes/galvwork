@@ -15,7 +15,6 @@
             "email": "contato@lucasgnunes.dev"
         }
     ],
-    "minimum-stability": "stable",
     "require": {
         "php": ">=5.3.0",
         "monolog/monolog": "^2.3"
