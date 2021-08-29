@@ -44,7 +44,11 @@ class LGRouterResponse
     public static function json(string $class, string $method)
     {
         $class = ucfirst(strtolower($class)) . "Controller";
-        $namespaceClass = "\\Controller\\".$class;
+        $controllerPath = "\\Controller\\";
+        if (defined('CONTROLLER_PATH')) {
+            $controllerPath = CONTROLLER_PATH;
+        }
+        $namespaceClass = $controllerPath.$class;
         if(method_exists($namespaceClass, $method)){
             $item = new ReflectionClass($namespaceClass);
             $ins = $item->newInstance();
