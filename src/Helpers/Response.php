@@ -89,7 +89,7 @@ class Response
         header('Status: ' . $status[$code]);
 
         $response['status'] = $code < 300;
-        if (count($data) > 0) {
+        if (!empty($data) > 0) {
             $response['data'] = $data;
         }
         if ($message) {
