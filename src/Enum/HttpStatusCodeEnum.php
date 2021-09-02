@@ -6,7 +6,7 @@
  * Time: 01:17
  */
 
-namespace Lucasgnunes\Galvwork\HttpStatusCodeEnum;
+namespace Lucasgnunes\Galvwork\Enum;
 
 class HttpStatusCodeEnum
 {
