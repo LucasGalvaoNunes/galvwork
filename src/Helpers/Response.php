@@ -10,7 +10,7 @@ namespace Lucasgnunes\Galvwork\Helpers;
  */
 class Response
 {
-    public static function json(int $code = 200, array $data = null, string $message = null, $error = null) : string
+    public static function json(int $code = 200, $data = null, string $message = null, $error = null) : string
     {
         // clear the old headers
         header_remove();
