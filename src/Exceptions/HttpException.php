@@ -2,7 +2,7 @@
 namespace Lucasgnunes\Galvwork\Exceptions;
 
 use Exception;
-use Lucasgnunes\Galvwork\HttpStatusCodeEnum\HttpStatusCodeEnum;
+use Lucasgnunes\Galvwork\Enum\HttpStatusCodeEnum;
 use Throwable;
 
 /**

@@ -4,10 +4,10 @@
 namespace Lucasgnunes\Galvwork\Router;
 
 
+use Lucasgnunes\Galvwork\Enum\HttpStatusCodeEnum;
 use Lucasgnunes\Galvwork\Exceptions\HttpException;
 use Lucasgnunes\Galvwork\Helpers\Logger;
 use Lucasgnunes\Galvwork\Helpers\Response;
-use Lucasgnunes\Galvwork\HttpStatusCodeEnum\HttpStatusCodeEnum;
 use ReflectionClass;
 
 /**
