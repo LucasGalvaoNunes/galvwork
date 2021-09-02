@@ -4,6 +4,10 @@
 namespace Lucasgnunes\Galvwork\Router;
 
 
+use Lucasgnunes\Galvwork\Exceptions\HttpException;
+use Lucasgnunes\Galvwork\Helpers\Logger;
+use Lucasgnunes\Galvwork\Helpers\Response;
+use Lucasgnunes\Galvwork\HttpStatusCodeEnum\HttpStatusCodeEnum;
 use ReflectionClass;
 
 /**
@@ -52,16 +56,22 @@ class LGRouterResponse
         if(method_exists($namespaceClass, $method)){
             $item = new ReflectionClass($namespaceClass);
             $ins = $item->newInstance();
-            return $ins->$method();
+
+            try {
+                return $ins->$method();
+            } catch (HttpException $exception) {
+                Logger::log('unattended-error')->warning($exception->getMessage());
+                return Response::json($exception->getHttpCode(), null, null, $exception->getMessage());
+            }
         }else{
             header_remove();
-            http_response_code(500);
+            http_response_code(HttpStatusCodeEnum::HTTP_METHOD_NOT_ALLOWED);
             header("Cache-Control: no-transform,public,max-age=300,s-maxage=900");
             header('Content-Type: application/json');
-            header('Status: 500');
+            header('Status: '.HttpStatusCodeEnum::HTTP_METHOD_NOT_ALLOWED);
             return json_encode(array(
                 'status' => false,
-                'message' => 'Method Not Exist'
+                'message' => 'Method Not Allowed'
             ));
         }
     }
