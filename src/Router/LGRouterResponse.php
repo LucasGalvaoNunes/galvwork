@@ -55,9 +55,8 @@ class LGRouterResponse
         $namespaceClass = $controllerPath.$class;
         if(method_exists($namespaceClass, $method)){
             $item = new ReflectionClass($namespaceClass);
-            $ins = $item->newInstance();
-
             try {
+                $ins = $item->newInstance();
                 return $ins->$method();
             } catch (HttpException $exception) {
                 Logger::log('unattended-error')->warning($exception->getMessage());
