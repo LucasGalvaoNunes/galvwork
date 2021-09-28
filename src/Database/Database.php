@@ -9,7 +9,6 @@
 namespace Lucasgnunes\Galvwork\Database;
 
 use Closure;
-use Illuminate\Support\Str;
 use PDOException;
 use Throwable;
 
