@@ -20,6 +20,16 @@ class Response
         header("Cache-Control: no-transform,public,max-age=300,s-maxage=900");
         // treat this as json
         header('Content-Type: application/json');
+        // set the header to make sure cache is forced
+        header("Cache-Control: no-transform,public,max-age=300,s-maxage=900");
+        // treat this as json
+        header('Content-Type: application/json');
+        if (isset($_SERVER['HTTP_ORIGIN'])) {
+            // Decide if the origin in $_SERVER['HTTP_ORIGIN'] is one
+            // you want to allow, and if so:
+            header("Access-Control-Allow-Origin: {$_SERVER['HTTP_ORIGIN']}");
+            header('Access-Control-Allow-Credentials: true');
+        }
         $status = array(
             100 => 'HTTP_CONTINUE',
             101 => 'HTTP_SWITCHING_PROTOCOLS',
